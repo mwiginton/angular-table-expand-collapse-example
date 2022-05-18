@@ -1,5 +1,13 @@
 <table mat-table [dataSource]="bossesDataSource" multiTemplateDataRows>
 
+    <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef>
+        </th>
+        <td mat-cell *matCellDef="let boss">
+            <img [src]="boss.image" width="100" height="100">
+        </td>
+    </ng-container>
+
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>
             <div>
@@ -11,14 +19,38 @@
         </td>
     </ng-container>
 
+    <ng-container matColumnDef="region">
+        <th mat-header-cell *matHeaderCellDef>
+            <div>
+                <span>Region</span>
+            </div>
+        </th>
+        <td mat-cell *matCellDef="let boss">
+            <span>{{ boss.region }}</span>
+        </td>
+    </ng-container>
+
     <!-- Expanded Column -->
-    <!-- <ng-container matColumnDef="expandedDetail">
+    <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="bossColumns.length">
+            <div class="example-element-detail"
+                [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'">
+                    <span class="expanded-contents">
+                        {{ element.description }} 
+                        <br>
+                        <br> 
+                        Location: {{ element.location }}
+                    </span>    
+            </div>
 
-    </ng-container> -->
+        </td>
+    </ng-container>
 
-    <!-- <tr mat-header-row *matHeaderRowDef="bossColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: bossColumns;"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr> -->
     <tr mat-header-row *matHeaderRowDef="bossColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: bossColumns;"></tr>
+    <tr mat-row *matRowDef="let boss; columns: bossColumns;"
+        class="example-element-row"
+        [class.example-expanded-row]="boss.isExpanded"
+        (click)="boss.isExpanded = !boss.isExpanded">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
