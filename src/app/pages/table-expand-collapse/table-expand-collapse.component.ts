@@ -18,8 +18,8 @@ import { TableService } from 'src/app/services/table.service';
 
 export class TableExpandCollapseComponent implements OnInit { 
   public bossColumns: string[] = ['image', 'name', 'region'];
-  public bosses: Boss[] = [];
-  public bossesDataSource = new MatTableDataSource(this.bosses)
+  public bosses: any[] = [];
+  public bossesDataSource = new MatTableDataSource();
 
   constructor(private tableService: TableService) { }
 
@@ -28,9 +28,8 @@ export class TableExpandCollapseComponent implements OnInit {
   }
 
   getBosses() {
-    this.tableService.getBosses().subscribe(data => {
-      // this.bosses = data.data;
-      this.bosses = data.data.filter((boss: Boss) => {
+    this.tableService.getBosses().subscribe(response => {
+      this.bosses = response.data.filter((boss) => {
         return boss.name === `Malenia, Blade Of Miquella` || boss.name === `Fire Giant` || boss.name === `Mohg, The Omen` || boss.name === `Ancestor Spirit` || boss.name === `Astel, Stars Of Darkness`
       });
 
@@ -39,9 +38,6 @@ export class TableExpandCollapseComponent implements OnInit {
         isExpanded: false
       }));
 
-      console.log('bosses');
-      console.log(this.bosses);
-
       this.bossesDataSource = new MatTableDataSource(this.bosses);
     }, error => {
       console.log(error);
@@ -49,7 +45,4 @@ export class TableExpandCollapseComponent implements OnInit {
   }
 }
 
-export interface Boss {
-  name: string;
-}
 

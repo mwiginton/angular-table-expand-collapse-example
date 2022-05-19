@@ -10,9 +10,9 @@ export class TableService {
 
   constructor(private http: HttpClient) { }
 
-  getBosses() : Observable<any>{
+  getBosses() {
     const url = `https://eldenring.fanapis.com/api/bosses?limit=106`;
-    return this.http.get(url, {}).pipe(tap((boss) => boss));
+    return this.http.get<any>(url, {});
   }
 }
 
