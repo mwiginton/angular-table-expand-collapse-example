@@ -1,12 +1,4 @@
 <table mat-table [dataSource]="bossesDataSource" multiTemplateDataRows>
-
-    <!-- <ng-container matColumnDef="image">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let boss">
-            <img [src]="boss.image" width="100" height="100">
-        </td>
-    </ng-container> -->
-
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
         <td mat-cell *matCellDef="let boss">
@@ -36,7 +28,6 @@
                         Location: {{ element.location }}
                     </span>    
             </div>
-
         </td>
     </ng-container>
 
