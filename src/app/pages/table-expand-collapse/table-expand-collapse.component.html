@@ -1,30 +1,21 @@
 <table mat-table [dataSource]="bossesDataSource" multiTemplateDataRows>
 
-    <ng-container matColumnDef="image">
-        <th mat-header-cell *matHeaderCellDef>
-        </th>
+    <!-- <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let boss">
             <img [src]="boss.image" width="100" height="100">
         </td>
-    </ng-container>
+    </ng-container> -->
 
     <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>
-            <div>
-                <span>Name</span>
-            </div>
-        </th>
+        <th mat-header-cell *matHeaderCellDef>Name</th>
         <td mat-cell *matCellDef="let boss">
             <span>{{ boss.name }}</span>
         </td>
     </ng-container>
 
     <ng-container matColumnDef="region">
-        <th mat-header-cell *matHeaderCellDef>
-            <div>
-                <span>Region</span>
-            </div>
-        </th>
+        <th mat-header-cell *matHeaderCellDef>Region</th>
         <td mat-cell *matCellDef="let boss">
             <span>{{ boss.region }}</span>
         </td>
@@ -35,6 +26,9 @@
         <td mat-cell *matCellDef="let element" [attr.colspan]="bossColumns.length">
             <div class="example-element-detail"
                 [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'">
+                    <span class="expanded-contents">
+                        <img [src]="element.image" width="100" height="100">
+                    </span>
                     <span class="expanded-contents">
                         {{ element.description }} 
                         <br>

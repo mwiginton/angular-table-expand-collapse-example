@@ -6,7 +6,6 @@ const routes: Routes = [
     {
         path: '',
         component: TableExpandCollapseComponent,
-        // data: { icon: 'home', name: 'Home', disabled: true, tags: ['login'] }
     }
 ];
 

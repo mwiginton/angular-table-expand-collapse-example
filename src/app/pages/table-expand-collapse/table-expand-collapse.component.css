@@ -23,29 +23,16 @@ tr.example-element-row:not(.example-expanded-row):active {
     display: flex;
 }
 
-.example-element-diagram {
-    min-width: 80px;
-    border: 2px solid black;
-    padding: 8px;
-    font-weight: lighter;
-    margin: 8px 0;
-    height: 104px;
-}
-
-.example-element-symbol {
-    font-weight: bold;
-    font-size: 40px;
-    line-height: normal;
-}
-
-.example-element-description {
-    padding: 16px;
-}
-
-.example-element-description-attribution {
-    opacity: 0.5;
-}
-
 .expanded-contents {
-    padding-left: 100px;
+    padding: 25px;
+}
+
+.mat-header-cell {
+    color: #7c7b7e !important;
+    font-family:Verdana,sans-serif !important;
+    font-weight:bold;
+}
+
+.mat-cell {
+    font-family:Verdana,sans-serif !important;
 }

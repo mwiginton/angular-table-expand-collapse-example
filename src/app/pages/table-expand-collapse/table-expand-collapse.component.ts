@@ -17,7 +17,7 @@ import { TableService } from 'src/app/services/table.service';
 })
 
 export class TableExpandCollapseComponent implements OnInit { 
-  public bossColumns: string[] = ['image', 'name', 'region'];
+  public bossColumns: string[] = ['name', 'region'];
   public bosses: any[] = [];
   public bossesDataSource = new MatTableDataSource();
 
