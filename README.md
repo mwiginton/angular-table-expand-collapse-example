@@ -1,5 +1,7 @@
 # AngularTableExpandCollapseExample
 
+Tutorial Article and Walkthrough: https://levelup.gitconnected.com/a-table-with-expandable-and-collapsible-rows-using-angular-59af3bdd8fd1
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
 
 ## Development server
